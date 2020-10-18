@@ -7,10 +7,10 @@ import {  ListGroup } from 'react-bootstrap';
 function TodoList(props) {
   return (
     <ListGroup className="lists">
-      {props.list.map(item => (
+      {props.list.map((item,idx) => (
         <ListGroup.Item variant={item.complete ? 'danger' : 'success'} 
           className={`complete-${item.complete.toString()}`}
-          key={item._id}
+          key={idx}
            
         >
           <span  className="todoList" onClick={() => props.handleComplete(item._id)}>

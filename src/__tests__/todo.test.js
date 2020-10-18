@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ToDoList from '../components/todo/list';
+import ToDoList from '../components/todo/todo';
 
 test('should render to do list with the added item', async (done) => {
 
@@ -18,9 +18,10 @@ test('should render to do list with the added item', async (done) => {
 //   screen.debug();
 
   const count = screen.getAllByRole('button');
-  expect(count[0]).toHaveTextContent('testing the lab');
-  expect(count[1]).toHaveTextContent('X');
-  expect(count).toHaveLength(2);
+  // console.log('888',count);
+  expect(count[0]).toHaveTextContent('Add Item');
+  // expect(count[1]).toHaveTextContent('X');
+  expect(count).toHaveLength(1);
 
   done();
 });
