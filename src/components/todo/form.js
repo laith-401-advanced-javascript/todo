@@ -2,30 +2,23 @@
 import React, { useState } from 'react';
 
 import { Form, Button } from 'react-bootstrap';
+import useForm from '../../hooks/useForm';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './todo.scss';
 
-function TodoForm(props) {
-  const [item, setItem] = useState({});
+export default (props) => {
 
-  const handleInputChange = e => {
-    setItem( {...item, [e.target.name]: e.target.value } );
-  };
+  const [handleSubmit, handleInputChange] = useForm(fromCallback)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.reset();
+  function fromCallback(item) {
     props.handleSubmit(item);
-    const item1 = {};
-    setItem(item1);
-  };
+  }
 
 
   return (
     <>
       <h3>Add Item</h3>
-      <Form  onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Label>
           <span>To Do Item</span>
           <Form.Control
@@ -46,7 +39,5 @@ function TodoForm(props) {
       </Form>
     </>
   );
-  
-}
 
-export default TodoForm;
+}

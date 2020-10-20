@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {  ListGroup } from 'react-bootstrap';
+import {  ListGroup , Card } from 'react-bootstrap';
 
 
 
@@ -13,9 +13,14 @@ function TodoList(props) {
           key={idx}
            
         >
-          <span  className="todoList" onClick={() => props.handleComplete(item._id)}>
+          <Card  className="todoList" onClick={() => props.handleComplete(item._id)}>
+            
             {item.text}
-          </span>
+            {item.complete}
+            {item.difficulty}
+            {item.assignee}
+            
+          </Card>
         </ListGroup.Item>
       ))}
     </ListGroup>
