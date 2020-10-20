@@ -35,7 +35,7 @@ export default (props) => {
           <span>Assigned To</span>
           <Form.Control type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
         </Form.Label>
-        <Button type="submit" >Add Item</Button>
+        <Button type="submit" className="submitBtn">Add Item</Button>
       </Form>
     </>
   );
