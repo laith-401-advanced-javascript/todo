@@ -2,17 +2,16 @@ import React from 'react';
 import { AuthContext } from './context';
 import Show from '../../components/show/show';
 
-class Login extends React.Component {
-
+class SignUp extends React.Component {
     static contextType = AuthContext;
 
-    
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
             username: '',
-            password: ''
-        }
+            password: '',
+            role: ''
+         }
     }
 
     handleChange = e => {
@@ -22,28 +21,26 @@ class Login extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         console.log("in handleSubmit")
-        this.context.login(this.state.username, this.state.password);
+        this.context.signUp(this.state.username, this.state.password , this.state.role);
     }
 
-    render() {
-        console.log("this.context.loggedIn >> ", this.context.loggedIn)
 
+    render() { 
+        console.log('*****', this.context);
         return (
             <>
-                <Show condition={this.context.loggedIn}>
-                    <button onClick={this.context.logout}>Logout</button>
-                </Show>
-                <Show condition={!this.context.loggedIn}>
+            <Show condition={!this.context.loggedIn}>
                     <form onSubmit={this.handleSubmit}>
                         <input onChange={this.handleChange} placeholder="username" name="username" />
-                        <input onChange={this.handleChange} placeholder="password" name="password" />
-                        <button type="submit">Login</button>
+                        <input onChange={this.handleChange} placeholder="password" name="password" type="password" />
+                        <input onChange={this.handleChange} placeholder="role" name="role" />
+
+                        <button type="submit">signup</button>
                     </form>
                 </Show>
             </>
-        )
+          );
     }
-
 }
-
-export default Login;
+ 
+export default SignUp;

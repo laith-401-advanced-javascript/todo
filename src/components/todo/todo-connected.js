@@ -9,12 +9,15 @@ import ToggleList from '../todo/ToggleList';
 import PaginationContext from '../../settings/paggination';
 import Paggination from '../todo/TogglePaggination';
 import DropDown from '../todo/dropDown.js';
+import Auth from '../../context/auth/auth';
+import Login from '../../context/auth/login';
+import { AuthContext } from '../../context/auth/context';
 
 
 import './todo.scss';
 
 
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+const todoAPI = 'https://todo-api-laith.herokuapp.com/api/v1/todos';
 // https://api-js401.herokuapp.com/api/v1/todo
 
 
@@ -25,6 +28,7 @@ const ToDo = () => {
 
 
   const _addItem = (item) => {
+    console.log('<<<<<');
     item.due = new Date();
     axiosApi(
       todoAPI,
@@ -82,36 +86,38 @@ const ToDo = () => {
           There are {list.filter(item => item.complete == 'pending').length} Items To Complete
         </h2>
       </header>
+      {/* <AuthContext> */}
+  
+        <ToggleHide list={list}>
 
-      <ToggleHide list={list}>
+          <ToggleList />
 
-        <ToggleList />
-
-        <PaginationContext list={list}>
+          <PaginationContext list={list}>
 
             <DropDown />
 
-          <section className="todo">
+            <section className="todo">
 
-            <div>
-              <TodoForm handleSubmit={_addItem} />
-            </div>
+              <div>
+                <TodoForm handleSubmit={_addItem} />
+              </div>
 
-            <div>
-              <TodoList
-                list={list}
-                handleDelete={_deleteItem}
-                handleComplete={_toggleComplete}
-              />
+              <div>
+                <TodoList
+                  list={list}
+                  handleDelete={_deleteItem}
+                  handleComplete={_toggleComplete}
+                />
 
-            </div>
-          <Paggination totalItems={list.length} />
+              </div>
+              <Paggination totalItems={list.length} />
 
-          </section>
+            </section>
 
-        </PaginationContext>
+          </PaginationContext>
 
-      </ToggleHide >
+        </ToggleHide >
+      {/* </AuthContext> */}
 
     </>
 
