@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import { AuthContext } from './context';
 import Show from '../../components/show/show';
@@ -5,7 +7,6 @@ import Show from '../../components/show/show';
 class Login extends React.Component {
 
     static contextType = AuthContext;
-
     
     constructor(props) {
         super(props);
@@ -26,8 +27,6 @@ class Login extends React.Component {
     }
 
     render() {
-        console.log("this.context.loggedIn >> ", this.context.loggedIn)
-
         return (
             <>
                 <Show condition={this.context.loggedIn}>

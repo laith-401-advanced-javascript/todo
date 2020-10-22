@@ -9,10 +9,6 @@ import ToggleList from '../todo/ToggleList';
 import PaginationContext from '../../settings/paggination';
 import Paggination from '../todo/TogglePaggination';
 import DropDown from '../todo/dropDown.js';
-import Auth from '../../context/auth/auth';
-import Login from '../../context/auth/login';
-import { AuthContext } from '../../context/auth/context';
-
 
 import './todo.scss';
 
@@ -83,10 +79,9 @@ const ToDo = () => {
     <>
       <header>
         <h2>
-          There are {list.filter(item => item.complete == 'pending').length} Items To Complete
+          There are  {list.filter(item => !item.complete).length} Items To Complete
         </h2>
       </header>
-      {/* <AuthContext> */}
   
         <ToggleHide list={list}>
 
@@ -117,7 +112,6 @@ const ToDo = () => {
           </PaginationContext>
 
         </ToggleHide >
-      {/* </AuthContext> */}
 
     </>
 

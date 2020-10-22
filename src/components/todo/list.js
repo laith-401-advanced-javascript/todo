@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { ListGroup, Card, Badge, Button, Dropdown, Pagination, Container, Row, Col } from 'react-bootstrap';
+import { ListGroup, Card, Badge, Button } from 'react-bootstrap';
 
 import { ToggleContext } from '../../settings/HideShow';
 import { PaginationContext } from '../../settings/paggination';
@@ -39,6 +39,7 @@ function TodoList(props) {
         ))}
 
       </ListGroup>  
+
 
       {/* 
        <Pagination>

@@ -13,6 +13,7 @@ class ToggleHide extends React.Component {
         }
     }
 
+
     toggleMode = () => this.setState({ mode: this.state.mode === 'hide' ? 'show' : 'hide' })
 
     render() {

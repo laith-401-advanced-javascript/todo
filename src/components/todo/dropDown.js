@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 import { PaginationContext } from '../../settings/paggination';
-import {  Dropdown } from 'react-bootstrap';
-
 
 function ChengeNumberOfPages() {
 

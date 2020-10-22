@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import base64 from 'base-64';
 import jwt from 'jsonwebtoken';
@@ -50,10 +52,10 @@ class AuthProvider extends React.Component {
                 cache: 'no-cache',
                 headers: { 'Authorization': `Basic ${encodedData}`  }
             });
-            console.log("result: ", result)
             let res = await result.json();
-            console.log("res: ", res)
-            // var token = res.token ; 
+            // console.log("res: ", res)
+            var token = res.token ; 
+            localStorage.setItem("token", token);
             this.validateToken(res.token);
 
         } catch (e) {
@@ -72,7 +74,7 @@ class AuthProvider extends React.Component {
                 body: JSON.stringify({ username, password, role })
             })
             let res = await result.json();
-            console.log("res: ", res)
+            // console.log("res: ", res)
             this.validateToken(res.token);
 
         } catch (e) {
@@ -82,13 +84,9 @@ class AuthProvider extends React.Component {
 
 
 
-
-
     validateToken = (token) => {
-
-        console.log("token >>> ", token)
+        // console.log("token >>> ", token)
         let user = jwt.decode(token)
-        console.log("user >>>> ", user)
 
         if (user) {
             this.setAuthState(true, token, user)  // to set cookie and update state.
