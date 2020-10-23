@@ -105,7 +105,7 @@ const ToDo = () => {
                 />
 
               </div>
-              <Paggination totalItems={list.length} />
+              {/* <Paggination totalItems={list.length} /> */}
 
             </section>
 

@@ -18,21 +18,21 @@ function TodoList(props) {
 
       <ListGroup className="lists">
         {pagination.currentItem.map((item, idx) => (
-          <ListGroup.Item variant={item.complete ? "danger" : "success"} className={`complete-${item.complete}-${toggleContext.mode}`}
+          <ListGroup.Item variant={item.complete ? "danger" : "success"} className={`complete-${item.complete}`}
             key={item._id}
           >
-            <Card className="todoList"  onClick={() => props.handleComplete(item._id)}>
+            <Card className="todoList" className={`complete-${item.complete}-${toggleContext.mode}`} onClick={() => props.handleComplete(item._id)}>
 
-              <Badge style={{ width: '80px', top: '1.8em', position: 'relative' }} variant={item.complete ? 'danger' : 'success'} className={`complete-${item.complete}`}>
+              <Badge style={{ width: '80px', top: '1.8em', position: 'relative' }} variant={item.complete ? 'danger' : 'success'} >
                 {item.complete ? 'Complete' : 'pending'}
               </Badge>{' '}
 
               <Card.Subtitle className="mb-2 text-muted" style={{ width: '130px', left: '7em', top: '0.3em', position: 'relative' }}>{item.assignee}</Card.Subtitle>
               <Card.Title>{item.text}</Card.Title>
 
-              <p style={{ position: 'relative', left: "27em", top: "3em" }}> Difficulty: {item.difficulty}  </p>
+              <p style={{ position: 'relative', left: "8em", top: "3em" }}> Difficulty: {item.difficulty}  </p>
 
-              <Button onClick={() => props.handleDelete(item._id)} type="submit" variant="danger" className="removeBtn" style={{ width: "2.2em", position: 'relative', left: "22em", bottom: "5.3em" }}>X</Button>{' '}
+              <Button onClick={() => props.handleDelete(item._id)} type="submit" variant="danger" className="removeBtn" style={{ width: "2.2em",  left: "22em", bottom: "5.3em" }}>X</Button>{' '}
 
             </Card>
           </ListGroup.Item>

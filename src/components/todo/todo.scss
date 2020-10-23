@@ -90,6 +90,7 @@ html {
       .todoList {
         width: 400px;
       }
+      
       input {
         border: 0.5px solid #eee;
         display: inline-block;
@@ -112,11 +113,11 @@ html {
 
 // }
 
-.complete-false-hide{
+.complete-true-show{
   display: none;
 }
 
-.complete-true-show{
+.complete-true-hide{
   display: block;
 }
 
