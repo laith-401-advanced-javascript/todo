@@ -1,83 +1,70 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-import TodoForm from './form.js';
-import TodoList from './list.js';
-
-import { Container, Nav } from 'react-bootstrap';
-
-
-import './todo.scss';
-
-function ToDo() {
-
-  const [list, setList] = useState([]);
-
-  const addItem = (item) => {
-    item._id = Math.random();
-    item.complete = false;
-    setList([...list, item]);
-  };
-
-  const toggleComplete = id => {
-
-    let item = list.filter(i => i._id === id)[0] || {};
-
-    if (item._id) {
-      item.complete = !item.complete;
-      let list2 = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(list2);
-    }
-
-  };
-
-  useEffect(() => {
-    let list = [
-      { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
-      { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
-      { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
-      { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
-      { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
-    ];
-    setList(list);
-  }, []);
+// /* eslint-disable no-unused-vars */
+// import React, { useState, useEffect } from 'react';
+// import TodoForm from './form.js';
+// import TodoList from './list.js';
+// import { Container, Nav } from 'react-bootstrap';
+// import './todo.scss';
 
 
-  return (
-    <>
-      <header>
-        <Nav className="navHeader">
-          <Nav.Item className="naveItem">
-            <Nav.Link className="title" href="/home">HOME</Nav.Link>
-          </Nav.Item>
+// function ToDo() {
+//   const [list, setList] = useState([]);
 
-        </Nav>
+//   const addItem = (item) => {
+//     item._id = Math.random();
+//     item.complete = false;
+//     setList([...list, item]);
+//   };
 
-  
-      </header>
-      <Container>
-        <h2 className="headTitle">
-          TO DO LIST MANAGER  ({list.filter(item => !item.complete).length})
-        </h2>
+//   const toggleComplete = id => {
+//     let item = list.filter(i => i._id === id)[0] || {};
 
-        <section className="todo">
+//     if (item._id) {
+//       item.complete = !item.complete;
+//       let list2 = list.map(listItem => listItem._id === item._id ? item : listItem);
+//       setList(list2);
+//     }
 
-          <div>
-            <TodoForm handleSubmit={addItem} />
-          </div>
+//   };
 
-          <div>
-            <TodoList
-              list={list}
-              handleComplete={toggleComplete}
-            />
-          </div>
-        </section>
-      </Container>
+//   useEffect(() => {
+//     let list = [
+//       // { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
+//       // { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
+//       // { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
+//       // { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
+//       // { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
+//     ];
+//     setList(list);
+//   }, []);
 
 
-    </>
-  );
+//   return (
+//     <>
 
-}
+//       <Container>
+//         <h2 className="headTitle">
+//           TO DO LIST MANAGER  ({list.filter(item => !item.complete).length})
+//         </h2>
 
-export default ToDo;
+//         <section className="todo">
+
+//           <div>
+//             <TodoForm handleSubmit={addItem} />
+//           </div>
+
+//           <div>
+//             <TodoList
+//               list={list}
+//               handleComplete={toggleComplete}
+//             />
+//           </div>
+//         </section>
+//       </Container>
+
+
+//     </>
+//   );
+
+// }
+
+// export default ToDo;

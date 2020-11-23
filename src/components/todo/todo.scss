@@ -66,7 +66,7 @@ html {
   }
 
   .lists {
-    list-style-type: none;
+    // list-style-type: none;
     margin: 0;
     padding: 0;
 
@@ -82,14 +82,15 @@ html {
           text-decoration: line-through;
         }
       }
-      &:hover {
-        cursor: pointer;
-        background-color: rgb(96, 182, 103);
-      }
+      // &:hover {
+      //   cursor: pointer;
+      //   background-color: rgb(96, 182, 103);
+      // }
 
       .todoList {
-        width: 300px;
+        width: 400px;
       }
+      
       input {
         border: 0.5px solid #eee;
         display: inline-block;
@@ -97,7 +98,7 @@ html {
         width: 300px;
       }
 
-      button {
+      .submitBtn {
         background: transparent;
         border: none;
         color: blue;
@@ -108,3 +109,22 @@ html {
     }
   }
 }
+// .removeBtn {
+
+// }
+
+.complete-true-show{
+  display: none;
+}
+
+.complete-true-hide{
+  display: block;
+}
+
+// #dropdown-basic{
+//   width: 50px;
+// }
+
+// dropdown {
+//   width: 50%;
+// }
